@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 const containerVariant = {
   visible: {
@@ -29,7 +30,14 @@ const variant1 = {
   // },
 }
 
-const TypoGraph = () => {
+const TypoGraph = ({ textColor }) => {
+  const [styles, setStyles] = useState('')
+
+  useEffect(() => {
+    if (textColor === 'text-zinc-800') setStyles('text-gray-300')
+    else setStyles('text-amber-400')
+  }, [textColor])
+
   return (
     <motion.div
       animate="visible"
@@ -45,7 +53,7 @@ const TypoGraph = () => {
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6 }}
-          className="text-amber-400 "
+          className={styles}
         >
           0
         </motion.h1>
@@ -63,7 +71,7 @@ const TypoGraph = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="overflow-hidden text-amber-400 "
+          className={'overflow-hidden ' + styles}
         >
           L
         </motion.h1>
@@ -79,7 +87,7 @@ const TypoGraph = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.4 }}
-          className="text-amber-400 "
+          className={styles}
         >
           T
         </motion.h1>
@@ -97,7 +105,7 @@ const TypoGraph = () => {
           initial={{ opacity: 0, rotateY: 0 }}
           animate={{ opacity: 1, rotateY: 180 }}
           transition={{ delay: 1.2 }}
-          className=" text-amber-400 "
+          className={styles}
         >
           E
         </motion.h1>

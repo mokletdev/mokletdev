@@ -1,18 +1,20 @@
 {
   "homepage": "https://mokletdev.vercel.app/",
-  "name": "mokletdev",
+  "name": "mokletdev-v2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "framer-motion": "^6.2.8",
-    "next": "latest",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-intersection-observer": "^8.33.1"
   },
   "devDependencies": {
@@ -22,7 +24,6 @@
     "postcss": "^8.4.7",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.1",
-    "tailwindcss": "^3.0.23",
-    "typescript": "4.5.4"
+    "tailwindcss": "^3.0.23"
   }
 }
