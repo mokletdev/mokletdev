@@ -1,4 +1,4 @@
-import { MENUNAV } from '../constant/menu'
+import { MENUNAV } from '@configs/menu'
 
 const Nav = ({ textColor }) => {
   return (
