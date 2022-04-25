@@ -1,1 +1,8 @@
-export const CATEGORY = ['java', 'node', 'website', 'codebase']
+export const CATEGORY = [
+  'frontend',
+  'backend',
+  'mobile',
+  'javascript',
+  'reactjs',
+  'nodejs',
+]
