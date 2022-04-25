@@ -13,3 +13,11 @@ h4,
 h5 {
   font-family: 'Rubik', sans-serif;
 }
+
+.defaultTransition {
+  @apply transition-colors duration-200 ease-out;
+}
+
+.defaultTransitionAll {
+  @apply transition-all duration-200 ease-out;
+}
