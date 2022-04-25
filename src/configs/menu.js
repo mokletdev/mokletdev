@@ -5,7 +5,7 @@ export const MENU = [
 ]
 
 export const MENUNAV = [
-  { name: 'About', href: '#top', classes: ' hidden md:block ' },
+  { name: 'Playground', href: '#playground', classes: ' hidden md:block ' },
   { name: 'More', href: '#findmore', classes: ' hidden md:block ' },
   {
     name: 'Github',
