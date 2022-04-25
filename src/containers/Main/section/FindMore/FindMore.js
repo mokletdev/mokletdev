@@ -14,7 +14,7 @@ const SectionFour = ({ setBgColor, setTextColor, textColor, data }) => {
 
   useEffect(() => {
     getFilteredProject()
-  }, [])
+  }, [data])
 
   useEffect(() => {
     if (inView) {
