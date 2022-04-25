@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import Header from '@elements/Header'
-import Project from '@fragments/Project'
+import HighlightCard from '@fragments/HighlightCard'
+import ProjectCard from '@fragments/ProjectCard'
 
 const SectionThree = ({ data, setBgColor, setTextColor, textColor }) => {
   const [ref, inView] = useInView()
@@ -23,20 +24,17 @@ const SectionThree = ({ data, setBgColor, setTextColor, textColor }) => {
     >
       <Header name="Playgorund" desc="The most fun" textColor={textColor} />
 
-      {/* <div ref={ref} className="mx-auto mt-12 mb-24 max-w-5xl">
-        {data.map((project, i) =>
-          i % 2 === 0 ? (
-            <ProjectRight projectUrl={project} key={i} textColor={textColor} />
-          ) : (
-            <ProjectLeft projectUrl={project} key={i} textColor={textColor} />
-          )
-        )}
-      </div> */}
-      <div ref={ref} className="mx-auto mt-12 mb-24 max-w-5xl">
+      <div ref={ref} className="mx-auto mt-12 mb-24 md:max-w-5xl ">
         {data.map((v, i) => (
-          <Project project={v} key={i} textColor={textColor} />
+          <HighlightCard project={v} key={i} index={i} />
         ))}
       </div>
+
+      {/* <div className="mx-auto mb-24 grid grid-cols-1 gap-4 md:max-w-5xl md:grid-cols-3">
+        {data.map((v, i) => (
+          <ProjectCard project={v} key={i} index={i} />
+        ))}
+      </div> */}
     </section>
   )
 }

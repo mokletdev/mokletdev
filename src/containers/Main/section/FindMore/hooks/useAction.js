@@ -1,31 +1,18 @@
-import getAllRepository from '@repositories/getAllRepository'
 import { CATEGORY } from '@configs/category'
 
 const useAction = (props) => {
-  const { setData } = props
+  const { setFilteredData, data } = props
 
-  const getFilteredProject = async (projectId) => {
-    // setLoading(true)
-    try {
-      const res = await getAllRepository()
-      setData(filterProject(res))
-    } catch (error) {
-      console.log(error)
-    } finally {
-      // setLoading(false)
-    }
-  }
-
-  const filterProject = (data) => {
+  const getFilteredProject = () => {
     let list = []
     CATEGORY.forEach((tag) =>
       list.push({
         tag,
-        projects: data.filter((v) => v.topics?.includes(tag)),
+        projects: data?.filter((v) => v.topics?.includes(tag)),
       })
     )
 
-    return list
+    setFilteredData(list)
   }
 
   return {
