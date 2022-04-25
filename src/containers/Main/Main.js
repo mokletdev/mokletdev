@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from '@elements/Navbar'
 import Welcome from './section/Welcome'
 import Highlight from './section/Highlight'
@@ -6,10 +6,19 @@ import JoinUs from './section/JoinUs'
 import FindMore from './section/FindMore'
 import { HIGHLIGHT } from '@configs/highlight'
 // import Footer from '@elements/Footer'
+import getAllRepository from '@repositories/getAllRepository'
+import useAction from './hooks/useAction'
 
 export default function Main() {
   const [bgColor, setBgColor] = useState('bg-zinc-900')
   const [textColor, setTextColor] = useState('text-white')
+  const [data, setData] = useState([])
+
+  const { getListProject } = useAction({ setData })
+
+  useEffect(() => {
+    getListProject()
+  }, [])
 
   return (
     <div
@@ -31,6 +40,7 @@ export default function Main() {
         setBgColor={setBgColor}
         setTextColor={setTextColor}
         textColor={textColor}
+        data={data}
       />
       {/* <Footer /> */}
     </div>
