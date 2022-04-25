@@ -8,10 +8,10 @@ const ListTag = ({ projects, tag, accent }) => {
         <div className={'w-12 border-b-2 ' + accent} />
       </div>
 
-      {projects?.map(({ name, link }) => (
+      {projects?.map(({ name, html_url }) => (
         <div>
           <a
-            href={link}
+            href={html_url}
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer text-base hover:text-red-500"
