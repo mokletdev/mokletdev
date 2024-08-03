@@ -1,7 +1,7 @@
 {
   "homepage": "https://mokletdev.vercel.app/",
-  "name": "mokletdev-v2",
-  "version": "0.1.0",
+  "name": "mokletdev",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
