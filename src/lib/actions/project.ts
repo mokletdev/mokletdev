@@ -3,50 +3,8 @@
 import { InferInsertModel } from "drizzle-orm";
 import { db } from "../../../database/drizzle";
 import { projects } from "../../../database/schema";
-import { GithubRepo } from "../../../type";
 import { config } from "../config";
-import { off } from "process";
-
-export const getGithubRepo = async (): Promise<GithubRepo[]> => {
-  const res = await fetch(
-    `${config.env.githubApi.endpoint}/repos?type=public&sort=updated&direction=asc`,
-    {
-      method: "GET",
-      signal: new AbortController().signal,
-      headers: {
-        "Content-Type": "application/json",
-        "User-Agent": "mokletdev",
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    }
-  );
-  if (!res.ok) throw new Error("Failed to fetch GitHub repositories");
-
-  const data = await res.json();
-
-  return data;
-};
-
-export const getGithubRepoCollaborators = async (): Promise<GithubRepo[]> => {
-  const res = await fetch(
-    `${config.env.githubApi.endpoint}/repos?type=public&sort=updated&direction=asc`,
-    {
-      method: "GET",
-      signal: new AbortController().signal,
-      headers: {
-        "Content-Type": "application/json",
-        "User-Agent": "mokletdev",
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    }
-  );
-  if (!res.ok) throw new Error("Failed to fetch GitHub repositories");
-
-  const data = await res.json();
-
-  return data;
-};
-
+import { getGithubRepo } from "./github";
 export const syncGithubRepo = async (): Promise<void> => {
   try {
     const githubRepos = await getGithubRepo();
