@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LocomotiveScrollWrapper } from "@/components/wrappers/locomotive-scroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Moklet Dev",
-  description: "Open-sourced projects by Moklet Developers for the World 4.0 🌏",
+  description:
+    "Open-sourced projects by Moklet Developers for the World 4.0 🌏",
 };
 
 export default function RootLayout({
@@ -25,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950 text-white`}
       >
-        {children}
+        <LocomotiveScrollWrapper>{children}</LocomotiveScrollWrapper>
       </body>
     </html>
   );

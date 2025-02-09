@@ -1,10 +1,11 @@
 "use server";
 
-import { InferInsertModel } from "drizzle-orm";
+import { asc, InferInsertModel } from "drizzle-orm";
 import { db } from "../../../database/drizzle";
 import { projects } from "../../../database/schema";
 import { config } from "../config";
 import { getGithubRepo } from "./github";
+
 export const syncGithubRepo = async (): Promise<void> => {
   try {
     const githubRepos = await getGithubRepo();
@@ -66,4 +67,13 @@ export const syncGithubRepo = async (): Promise<void> => {
   } catch (error) {
     console.error("❌ Error syncing repositories:", error);
   }
+};
+
+export const getListProjects = async () => {
+  const data = await db
+    .select()
+    .from(projects)
+    // .limit(10)
+    .orderBy(asc(projects.name));
+  return data;
 };

@@ -1,15 +1,9 @@
 import React from "react";
-import { db } from "../../../database/drizzle";
-import { projects } from "../../../database/schema";
-import { asc } from "drizzle-orm";
 import { Sync } from "./sync";
+import { getListProjects } from "@/lib/actions/project";
 
 export const Projects = async () => {
-  const listProjects = await db
-    .select()
-    .from(projects)
-    // .limit(10)
-    .orderBy(asc(projects.name));
+  const listProjects = await getListProjects();
 
   return (
     <section id="projects">
