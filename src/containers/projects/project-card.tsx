@@ -43,7 +43,7 @@ export const ProjectCard = ({ className, project }: Props) => {
       className={cn(
         "relative w-full overflow-hidden rounded-xl bg-neutral-950 aspect-square border border-neutral-800",
         // Card position
-        "origin-top",
+        "origin-center",
         // Hover variable
         "sm:[--opacity-hidden:0%] sm:[--opacity-visible:100%]",
         className
