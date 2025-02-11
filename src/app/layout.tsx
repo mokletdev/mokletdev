@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Rubik, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { LocomotiveScrollWrapper } from "@/components/wrappers/locomotive-scroll";
+import { Provider } from "jotai";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const rubik = Rubik({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  subsets: ["latin"],
+});
+
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
@@ -27,9 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950 text-white`}
+        className={`${rubik.className} ${inter.className} ${spaceGrotesk.className} antialiased bg-neutral-950 text-white`}
       >
-        <LocomotiveScrollWrapper>{children}</LocomotiveScrollWrapper>
+        <Provider>
+          <LocomotiveScrollWrapper>{children}</LocomotiveScrollWrapper>
+        </Provider>
       </body>
     </html>
   );

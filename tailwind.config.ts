@@ -8,6 +8,14 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+    },
+    fontFamily: {
+      sans: ["Inter", "Arial", "Helvetica", "sans-serif"],
+      rubik: ["Rubik", "Arial", "Helvetica", "sans-serif"],
+      mono: ["Space Grotesk", "Courier New", "sans-serif"],
+    },
     extend: {
       colors: {
         background: "hsl(var(--background))",
@@ -58,5 +66,6 @@ export default {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
