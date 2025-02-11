@@ -4,7 +4,7 @@ import { useAtomValue } from "jotai";
 import { listProjectAtom } from "@/lib/jotai";
 import { ClassValue } from "clsx";
 import { cn } from "@/lib/utils";
-import { ProjectCard } from "@/components/fragments/project-card";
+import { ProjectCard } from "@/containers/projects/project-card";
 
 interface Props
   extends Omit<

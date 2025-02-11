@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
 import { ClassValue } from "clsx";
 import React, { useRef, useState } from "react";
-import { ProgressiveBlur } from "../ui/progressive-blur";
+import { ProgressiveBlur } from "../../components/ui/progressive-blur";
 import { motion, useScroll, useTransform } from "motion/react";
 import { InferSelectModel } from "drizzle-orm";
 import { projects } from "../../../database/schema";
-import { Button } from "../ui/button";
+import { Button } from "../../components/ui/button";
 
 interface Props {
   className?: ClassValue;
