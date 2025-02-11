@@ -5,6 +5,7 @@ import { ProgressiveBlur } from "../ui/progressive-blur";
 import { motion, useScroll, useTransform } from "motion/react";
 import { InferSelectModel } from "drizzle-orm";
 import { projects } from "../../../database/schema";
+import { Button } from "../ui/button";
 
 interface Props {
   className?: ClassValue;
@@ -18,12 +19,20 @@ export const ProjectCard = ({ className, project }: Props) => {
     offset: ["5% end", "95% start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 1, 0.2]);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.6, 1],
+    [0.8, 1, 1, 0.8]
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.6, 1],
+    [0.2, 1, 1, 0.2]
+  );
   const filter = useTransform(
     scrollYProgress,
-    [0, 0.5, 1],
-    [`blur(4px)`, `blur(0)`, `blur(4px)`]
+    [0, 0.35, 0.65, 1],
+    [`blur(4px)`, `blur(0)`, `blur(0)`, `blur(4px)`]
   );
 
   const [isHover, setIsHover] = useState(false);
@@ -34,7 +43,7 @@ export const ProjectCard = ({ className, project }: Props) => {
       className={cn(
         "relative w-full overflow-hidden rounded-xl bg-neutral-950 aspect-square border border-neutral-800",
         // Card position
-        "even:origin-top",
+        "origin-top",
         // Hover variable
         "sm:[--opacity-hidden:0%] sm:[--opacity-visible:100%]",
         className
@@ -59,7 +68,21 @@ export const ProjectCard = ({ className, project }: Props) => {
         transition={{ duration: 0.2, ease: "easeOut" }}
       />
       <motion.div
-        className="absolute bottom-0 left-0 flex justify-between w-full items-end p-4 sm:[--bottom-hidden:-0.5rem]"
+        className="absolute top-0 right-0 p-4"
+        animate={isHover ? "visible" : "hidden"}
+        variants={{
+          hidden: {
+            opacity: "var(--opacity-hidden, 100%)",
+            bottom: "var(--bottom-hidden, 0)",
+          },
+          visible: { opacity: "var(--opacity-visible, 100%)", bottom: 0 },
+        }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+      >
+        <Button>Visit</Button>
+      </motion.div>
+      <motion.div
+        className="absolute bottom-0 left-0 flex justify-between w-full items-end p-4 md:[--bottom-hidden:-0.5rem]"
         animate={isHover ? "visible" : "hidden"}
         variants={{
           hidden: {
@@ -76,9 +99,6 @@ export const ProjectCard = ({ className, project }: Props) => {
             {project.description}
           </p>
         </div>
-        {/* <button className="rounded-full py-1 px-4 bg-neutral-700/50 backdrop-blur-sm">
-          Visit
-        </button> */}
       </motion.div>
     </motion.div>
   );

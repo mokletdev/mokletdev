@@ -19,10 +19,10 @@ export const Hero = ({ scrollYProgress }: Props) => {
     <>
       <div
         id="hero"
-        className="sticky top-0 h-dvh flex items-center justify-center"
+        className="sticky top-0 h-[80dvh] md:h-dvh flex items-center justify-center"
       >
         <motion.div style={{ scale, rotate, filter }} className="">
-          <h1 className="grid grid-cols-3 grid-rows-3 leading-none text-center font-medium font-rubik text-[25vw] md:text-[10vw] even:*:text-amber-500 odd:*:text-red-600">
+          <h1 className="grid grid-cols-3 grid-rows-3 leading-none text-center font-medium font-rubik text-[25vw] sm:text-[20vw] md:text-[15vw] lg:text-[10vw] even:*:text-amber-500 odd:*:text-red-600">
             <span>M</span>
             <span>O</span>
             <span>K</span>
