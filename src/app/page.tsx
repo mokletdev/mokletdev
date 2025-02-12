@@ -1,5 +1,6 @@
 "use client";
 import { Hero } from "@/containers/hero";
+import JoinUs from "@/containers/join-us/join-us";
 import { Projects } from "@/containers/projects";
 import { Repositories } from "@/containers/repositories";
 import { useScroll } from "motion/react";
@@ -18,11 +19,9 @@ export default function Home() {
     <>
       <div className="relative">
         <Hero scrollYProgress={scrollYProgressProject} />
-
         <Projects id="projects" ref={projectRef} className="mt-20" />
       </div>
-      <div className="h-dvh" />
-
+      <JoinUs />
       <Repositories />
       <div className="h-dvh" />
       <div className="h-dvh" />

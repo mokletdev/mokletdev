@@ -30,8 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${rubik.className} ${inter.className} ${spaceGrotesk.className} antialiased bg-neutral-950 text-white`}
+        className={`${rubik.className} ${inter.className} ${spaceGrotesk.className} antialiased bg-zinc-950 text-white relative`}
       >
+        <div
+          className="fixed top-0 left-0 w-screen h-screen bg-repeat opacity-5"
+          style={{
+            backgroundSize: "100px",
+            backgroundImage: "url('/img/noise.png')",
+          }}
+        ></div>
         <Provider>
           <LocomotiveScrollWrapper>{children}</LocomotiveScrollWrapper>
         </Provider>

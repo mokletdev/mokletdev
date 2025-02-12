@@ -22,10 +22,10 @@ export const Projects = ({ className, ...props }: Props) => {
     <section
       {...props}
       className={cn(
-        "relative z-20 container px-8 min-h-[100vh] grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-x-4 md:gap-x-8 lg:gap-x-16 ",
+        "relative z-20 container px-8 min-h-[100vh] grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-x-4 md:gap-x-8 lg:gap-x-16",
         hasData && listHighlightedProjects.data.length % 2 === 0
-          ? "odd:*:sm:mt-[20vw] "
-          : "even:*:sm:mt-[20vw] ",
+          ? "odd:*:sm:mt-[20vw]"
+          : "even:*:sm:mt-[20vw]",
         // " *:max-w-[70vw] even:*:max-sm:ml-auto",
         className
       )}
