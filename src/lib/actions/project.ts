@@ -1,6 +1,6 @@
 "use server";
 
-import { asc, InferInsertModel } from "drizzle-orm";
+import { asc, InferInsertModel, and, gt } from "drizzle-orm";
 import { db } from "../../../database/drizzle";
 import { projects } from "../../../database/schema";
 import { config } from "../config";
@@ -38,6 +38,7 @@ export const syncGithubRepo = async (): Promise<void> => {
         githubCreatedAt: new Date(repo.created_at),
         githubUpdatedAt: new Date(repo.updated_at),
         githubPushedAt: new Date(repo.pushed_at),
+        // highlight: repo.forks_count > 1 && repo.stargazers_count > 1,
       }));
 
     // Bulk insert with conflict resolution
@@ -59,6 +60,7 @@ export const syncGithubRepo = async (): Promise<void> => {
           // githubCreatedAt: projects.githubCreatedAt,
           githubUpdatedAt: projects.githubUpdatedAt,
           githubPushedAt: projects.githubPushedAt,
+          // highlight: projects.highlight,
           updatedAt: new Date(),
         },
       });
@@ -75,5 +77,17 @@ export const getListProjects = async () => {
     .from(projects)
     // .limit(10)
     .orderBy(asc(projects.name));
+  return data;
+};
+
+export const getListHighlightedProjects = async () => {
+  const data = await db
+    .select()
+    .from(projects)
+    .where(and(gt(projects.forksCount, 1), gt(projects.stargazersCount, 1)))
+    // .limit(10)
+    .orderBy(asc(projects.stargazersCount));
+
+  console.log(data);
   return data;
 };

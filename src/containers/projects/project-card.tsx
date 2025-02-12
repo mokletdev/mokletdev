@@ -39,7 +39,7 @@ export const ProjectCard = ({ className, project }: Props) => {
   return (
     <motion.div
       ref={scrollRef}
-      style={{ scale, filter }}
+      style={{ scale, filter, direction: "ltr" }}
       className={cn(
         "relative w-full overflow-hidden rounded-xl bg-neutral-950 aspect-square border border-neutral-800",
         // Card position
@@ -82,7 +82,7 @@ export const ProjectCard = ({ className, project }: Props) => {
         <Button>Visit</Button>
       </motion.div>
       <motion.div
-        className="absolute bottom-0 left-0 flex justify-between w-full items-end p-4 md:[--bottom-hidden:-0.5rem]"
+        className="absolute bottom-0 left-0 flex justify-between w-full items-end p-4 sm:[--bottom-hidden:-0.5rem]"
         animate={isHover ? "visible" : "hidden"}
         variants={{
           hidden: {

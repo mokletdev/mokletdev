@@ -4,11 +4,11 @@ import { Sync } from "./sync";
 import { useAtomValue } from "jotai";
 import { listProjectAtom } from "@/lib/jotai";
 
-export const Projects = () => {
+export const Repositories = () => {
   const listProjects = useAtomValue(listProjectAtom);
 
   return (
-    <section id="projects">
+    <section id="projects" className="relative z-20">
       <h1>All project</h1>
       <Sync />
       {listProjects.state === "hasData" &&

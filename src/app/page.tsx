@@ -1,6 +1,7 @@
 "use client";
 import { Hero } from "@/containers/hero";
 import { Projects } from "@/containers/projects";
+import { Repositories } from "@/containers/repositories";
 import { useScroll } from "motion/react";
 import { useRef } from "react";
 
@@ -14,10 +15,17 @@ export default function Home() {
   });
 
   return (
-    <div className="relative">
-      <Hero scrollYProgress={scrollYProgressProject} />
+    <>
+      <div className="relative">
+        <Hero scrollYProgress={scrollYProgressProject} />
 
-      <Projects id="projects" ref={projectRef} className="mt-20" />
-    </div>
+        <Projects id="projects" ref={projectRef} className="mt-20" />
+      </div>
+      <div className="h-dvh" />
+
+      <Repositories />
+      <div className="h-dvh" />
+      <div className="h-dvh" />
+    </>
   );
 }
