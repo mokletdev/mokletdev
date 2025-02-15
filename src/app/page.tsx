@@ -12,14 +12,14 @@ export default function Home() {
   const { scrollYProgress: scrollYProgressProject } = useScroll({
     target: projectRef,
     layoutEffect: true,
-    offset: ["start end", "start 50vh"],
+    offset: ["10vh end", "start 50vh"],
   });
 
   return (
     <>
-      <div className="relative">
+      <div className="relative z-0">
         <Hero scrollYProgress={scrollYProgressProject} />
-        <Projects id="projects" ref={projectRef} className="mt-20" />
+        <Projects id="projects" ref={projectRef} />
       </div>
       <JoinUs />
       <Repositories />

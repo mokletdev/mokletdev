@@ -1,5 +1,7 @@
 "use client";
 import { motion, MotionValue, useTransform } from "motion/react";
+import Link from "next/link";
+import { HiArrowNarrowRight } from "react-icons/hi";
 
 interface Props {
   scrollYProgress: MotionValue<number>;
@@ -18,7 +20,7 @@ export const Hero = ({ scrollYProgress }: Props) => {
   return (
     <>
       <div className="sticky top-0 left-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-[80dvh] md:h-dvh flex items-center justify-center z-10">
+        <div className="absolute top-0 left-0 w-full h-[90dvh] md:h-dvh flex items-center justify-center z-10">
           <motion.div style={{ scale, rotate, filter }} className="">
             <h1 className="grid grid-cols-3 grid-rows-3 leading-none text-center font-medium font-rubik text-[25vw] sm:text-[20vw] md:text-[15vw] lg:text-[10vw] odd:*:text-red-600 even:*:text-amber-500">
               <span>M</span>
@@ -34,7 +36,30 @@ export const Hero = ({ scrollYProgress }: Props) => {
           </motion.div>
         </div>
       </div>
-      <section className="h-dvh relative z-10">dev.</section>
+      <section className="h-[90dvh] md:h-dvh relative z-10 container mx-auto p-4 flex flex-col justify-between">
+        <div className="flex">
+          <p className="bg-white p-2 text-zinc-950 font-bold font-rubik">
+            dev.
+          </p>
+        </div>
+        <div className="bottom-0 flex flex-col">
+          <Link href="/">
+            <HiArrowNarrowRight className="inline-flex" /> About
+          </Link>
+          <Link href="/">
+            <HiArrowNarrowRight className="inline-flex" /> Featured
+          </Link>
+          <Link href="/">
+            <HiArrowNarrowRight className="inline-flex" /> Contribute
+          </Link>
+        </div>
+      </section>
+
+      <div className="h-dvh">
+        <div className="sticky top-0 left-0 z-0">
+          tests
+        </div>
+      </div>
     </>
   );
 };
