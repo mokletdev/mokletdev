@@ -6,43 +6,22 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "db:generate": "npx drizzle-kit generate",
-    "db:migrate": "npx drizzle-kit migrate",
-    "db:introspect": "npx drizzle-kit introspect",
-    "db:studio": "npx drizzle-kit studio"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.10.4",
-    "@radix-ui/react-slot": "^1.1.2",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "dotenv": "^16.4.7",
-    "drizzle-orm": "^0.39.2",
-    "jotai": "^2.11.3",
-    "jsonwebtoken": "^9.0.2",
-    "locomotive-scroll": "^5.0.0-beta.21",
-    "lucide-react": "^0.474.0",
-    "motion": "^12.4.1",
-    "next": "15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0",
-    "tailwind-merge": "^3.0.1",
-    "tailwindcss-animate": "^1.0.7"
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.4.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
-    "@types/jsonwebtoken": "^9.0.8",
-    "@types/node": "^20.17.17",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "drizzle-kit": "^0.30.4",
-    "eslint": "^9.20.0",
-    "eslint-config-next": "15.1.6",
-    "eslint-plugin-unused-imports": "^4.1.4",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "@eslint/eslintrc": "^3"
   }
 }
