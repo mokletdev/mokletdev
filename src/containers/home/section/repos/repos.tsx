@@ -1,14 +1,14 @@
 "use client";
+import { RepoCard, RepoCardWithImage } from "@/components/fragments/repo-card";
 import { useRepository } from "@/hooks/use-repository";
 import { GitHubRepository } from "@/types/github";
-import { RepoCard, RepoCardWithImage } from "./repo-card";
 
-export const ListRepos = ({ repos }: { repos: GitHubRepository[] }) => {
+export const ReposSection = ({ repos }: { repos: GitHubRepository[] }) => {
   const { keyword, setKeyword, language, setLanguage, languages, data } =
     useRepository({ repos });
 
   return (
-    <section className="@container/repos" id="list-repos">
+    <section id="repos" className="@container/repos">
       <div className="flex items-center justify-between">
         <input
           value={keyword}
@@ -43,7 +43,7 @@ export const ListRepos = ({ repos }: { repos: GitHubRepository[] }) => {
           </button>
         </div>
       </div>
-      <div className="grid gap-4 @[736px]/repos:grid-cols-2 @[1116px]/repos:grid-cols-3">
+      <div className="grid gap-4 @[696px]/repos:grid-cols-2 @[1056px]/repos:grid-cols-3">
         {data.map((repo) =>
           repo.homepage ? (
             <RepoCardWithImage key={repo.id} data={repo} />

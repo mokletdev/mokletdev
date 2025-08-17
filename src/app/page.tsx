@@ -1,7 +1,6 @@
 // src/app/page.tsx
 import { getOrgRepos } from "@/lib/github";
-import { ListRepos } from "@/components/fragments/list-repos";
-import { ModeToggle } from "@/components/fragments/mode-toggle";
+import { HomeContainer } from "@/containers/home";
 
 export const revalidate = 1800; // page-level ISR (optional)
 
@@ -13,10 +12,5 @@ export default async function Page() {
 
   const repos = await getOrgRepos(org);
 
-  return (
-    <main className="">
-      <ModeToggle />
-      <ListRepos repos={repos} />
-    </main>
-  );
+  return <HomeContainer repos={repos} />;
 }
