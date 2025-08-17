@@ -4,32 +4,16 @@ import { cn } from "@/lib/utils";
 import { GitHubRepository } from "@/types/github";
 import { ClassValue } from "clsx";
 import { PreviewUrl } from "./preivew-url";
-import { SiGithub } from "react-icons/si";
-import { LuArrowUpRight, LuExternalLink } from "react-icons/lu";
+import { LuArrowUpRight } from "react-icons/lu";
 import Link from "next/link";
 import { TiStarFullOutline } from "react-icons/ti";
 import { RiGitForkFill } from "react-icons/ri";
 import { formatDate } from "@/utils/time";
+import { getLanguageColor } from "@/utils/colors";
 
 // TODO: Add custom animation
 // TODO: Button to small
 // TODO: Text to small
-
-const getLanguageColor = (language: string | null) => {
-  const colors: { [key: string]: string } = {
-    JavaScript: "bg-yellow-500",
-    TypeScript: "bg-blue-500",
-    Python: "bg-green-500",
-    Java: "bg-red-500",
-    "C++": "bg-purple-500",
-    Go: "bg-cyan-500",
-    Rust: "bg-orange-500",
-    PHP: "bg-indigo-500",
-    Ruby: "bg-red-600",
-    Swift: "bg-orange-600",
-  };
-  return colors[language || ""] || "bg-gray-500";
-};
 
 export const RepoCard = ({
   data,
@@ -105,12 +89,10 @@ export const CardTitle = ({
 }) => {
   return (
     <div className={cn("flex items-center gap-1", className)}>
-      <p className="font-semibold tracking-tight text-lg">
-        {data.name}
-      </p>
+      <p className="font-semibold tracking-tight text-lg">{data.name}</p>
       <LuArrowUpRight
         size={24}
-        className="group-hover:text-accent-foreground transition-all  duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+        className="group-hover:text-accent-foreground transition-all  duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
       />
     </div>
   );

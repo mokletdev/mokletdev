@@ -16,7 +16,7 @@ async function fetchJSON<T>(url: string, init?: RequestInit): Promise<T> {
     ...init,
     headers,
     // Cache on the server and revalidate periodically
-    next: { revalidate: 1800, tags: ["github:repos"] }, // 30 min
+    next: { revalidate: 3600, tags: ["github:repos"] }, // 1 hour
   });
 
   if (!res.ok) {
