@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Image, { ImageProps } from "next/image";
 import queryString from "query-string";
 
@@ -23,6 +23,8 @@ export const PreviewUrl = ({
   delay = 0,
   ...props
 }: PreviewUrlProps) => {
+  // const { resolvedTheme } = useTheme();
+
   const previewHeight = Math.ceil(1080 / height);
 
   const imageUrl = useMemo(() => {
@@ -41,13 +43,35 @@ export const PreviewUrl = ({
     return `https://api.microlink.io/?${params}`;
   }, []);
 
+  const fallbacks = useMemo(() => {
+    return [
+      imageUrl,
+      `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`,
+      // local placeholder in /public (add your own image there)
+      "/fallback-image.png",
+    ];
+  }, [url, imageUrl]);
+
+  const [idx, setIdx] = useState(0);
+
+  const currentSrc = useMemo(() => {
+    const src = fallbacks[Math.min(idx, fallbacks.length - 1)];
+    return src;
+  }, [fallbacks, idx]);
+
   return (
     <Image
-      src={imageUrl}
+      src={currentSrc}
       width={width}
       height={height}
       className={cn(className)}
       alt={alt}
+      onError={(err) => {
+        // try the next fallback
+        if (idx < fallbacks.length - 1) {
+          setIdx((i) => i + 1);
+        }
+      }}
       {...props}
     />
   );

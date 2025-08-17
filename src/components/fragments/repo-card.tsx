@@ -45,13 +45,15 @@ export const RepoCard = ({
 
       {hasHomepage ? (
         <>
-          <PreviewUrl
-            url={data.homepage!}
-            width={640}
-            height={360}
-            className="object-cover object-top w-full relative z-0"
-            loading="lazy"
-          />
+          {data.homepage && (
+            <PreviewUrl
+              url={data.homepage}
+              width={640}
+              height={360}
+              className="object-cover object-top w-full relative z-0"
+              loading="lazy"
+            />
+          )}
           <div className="absolute bottom-0 left-0 w-full z-10 p-4 bg-background/10 flex flex-col gap-2 h-full group-hover:translate-y-0 translate-y-[calc(100%-5.5rem)] transition-all duration-300 group-hover:bg-accent/10 backdrop-blur">
             <CardTitle data={data} />
             <CardDescription
