@@ -1,4 +1,4 @@
-import { GitHubRepository } from "@/types/github";
+import { GitHubRepository, GitHubUserLite } from "@/types/github";
 import { toTime } from "@/utils/time";
 
 const BASE = "https://api.github.com";
@@ -46,6 +46,26 @@ export async function getOrgRepos(org: string): Promise<GitHubRepository[]> {
   all = all
     .filter((r) => !r.archived && !r.disabled && !r.name.includes(".github"))
     .sort((a, b) => lastActivityMs(b) - lastActivityMs(a));
+
+  return all;
+}
+
+// Fetch *all* public members for an org, handling pagination.
+export async function getOrgMembers(org: string): Promise<GitHubUserLite[]> {
+  const perPage = 100;
+  let page = 1;
+  let all: GitHubUserLite[] = [];
+
+  while (true) {
+    const list = await fetchJSON<GitHubUserLite[]>(
+      `${BASE}/orgs/${org}/members?per_page=${perPage}&page=${page}`
+    );
+
+    all = all.concat(list);
+    if (list.length < perPage) break; // last page
+    page += 1;
+    if (page > 10) break; // safety cap (1000 members)
+  }
 
   return all;
 }

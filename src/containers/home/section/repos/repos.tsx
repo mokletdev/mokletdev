@@ -1,7 +1,8 @@
 "use client";
-import { RepoCard, RepoCardWithImage } from "@/components/fragments/repo-card";
+import { RepoCard } from "@/components/fragments/repo-card";
 import { useRepository } from "@/hooks/use-repository";
 import { GitHubRepository } from "@/types/github";
+import Link from "next/link";
 
 export const ReposSection = ({ repos }: { repos: GitHubRepository[] }) => {
   const { keyword, setKeyword, language, setLanguage, languages, data } =
@@ -44,13 +45,9 @@ export const ReposSection = ({ repos }: { repos: GitHubRepository[] }) => {
         </div>
       </div>
       <div className="grid gap-4 @[696px]/repos:grid-cols-2 @[1056px]/repos:grid-cols-3">
-        {data.map((repo) =>
-          repo.homepage ? (
-            <RepoCardWithImage key={repo.id} data={repo} />
-          ) : (
-            <RepoCard key={repo.id} data={repo} />
-          )
-        )}
+        {data.map((repo) => (
+          <RepoCard key={repo.id} data={repo} />
+        ))}
       </div>
     </section>
   );

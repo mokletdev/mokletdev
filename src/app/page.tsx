@@ -1,5 +1,5 @@
 // src/app/page.tsx
-import { getOrgRepos } from "@/lib/github";
+import { getOrgMembers, getOrgRepos } from "@/lib/github";
 import { HomeContainer } from "@/containers/home";
 
 export const revalidate = 1800; // page-level ISR (optional)
@@ -11,6 +11,7 @@ export default async function Page() {
   }
 
   const repos = await getOrgRepos(org);
+  const members = await getOrgMembers(org);
 
-  return <HomeContainer repos={repos} />;
+  return <HomeContainer repos={repos} members={members} />;
 }
