@@ -30,7 +30,15 @@ export const PreviewUrl = ({
   // console.log(imageUrl);
 
   return (
-    <Image
+    // <Image
+    //   src={imageUrl}
+    //   width={width}
+    //   height={height}
+    //   className={cn(className)}
+    //   alt={alt}
+    //   {...props}
+    // />
+    <img
       src={imageUrl}
       width={width}
       height={height}
