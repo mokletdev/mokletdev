@@ -25,7 +25,7 @@ export const HeroSection = () => {
       ref={projectRef}
     >
       <motion.div style={{ scale, rotate, opacity }} className="transform">
-        <h1 className="grid grid-cols-3 grid-rows-3 leading-none text-center font-semibold font-rubik text-[25vw] sm:text-[20vw] md:text-[15vw] lg:text-[10vw] *:odd:text-red-500 *:even:text-amber-500">
+        <h1 className="grid grid-cols-3 grid-rows-3 leading-none text-center font-medium font-rubik text-[25vw] sm:text-[20vw] md:text-[15vw] lg:text-[10vw] *:odd:text-red-500 *:even:text-amber-500">
           <motion.span
             initial={{
               opacity: 0,
