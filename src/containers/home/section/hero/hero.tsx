@@ -1,5 +1,5 @@
 "use client";
-import { motion, MotionValue, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
 export const HeroSection = () => {

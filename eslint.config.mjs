@@ -14,7 +14,7 @@ const eslintConfig = [
   ...compat.config({
     rules: {
       "no-console": "warn",
-      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       "@typescript-eslint/no-explicit-any": "warn",
     },
   }),

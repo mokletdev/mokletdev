@@ -4,7 +4,6 @@ import { useRepository } from "@/hooks/use-repository";
 import { cn } from "@/lib/utils";
 import { GitHubRepository } from "@/types/github";
 import { getLanguageColor } from "@/utils/colors";
-import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
 
 export const ReposSection = ({ repos }: { repos: GitHubRepository[] }) => {

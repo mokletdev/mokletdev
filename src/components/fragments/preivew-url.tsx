@@ -1,8 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useMemo, useState } from "react";
-import queryString from "query-string";
+import { useMemo } from "react";
 import Image, { ImageProps } from "next/image";
 
 interface PreviewUrlProps

@@ -17,9 +17,9 @@ export const ContributeSection = ({
         Contribute to the project
       </h2>
       <p className="text-center text-sm lg:text-base w-full sm:max-w-2xl mb-8 text-muted-foreground">
-        Join our community of contributors and help us build something great!
-        Whether you're a developer, designer, or just passionate about the
-        project, your contributions are welcome.
+        {
+          "Join our community of contributors and help us build something great! Whether you're a developer, designer, or just passionate about the project, your contributions are welcome."
+        }
       </p>
       <div className="flex flex-wrap items-center justify-center gap-1 max-w-lg">
         {members.map((member) => (
