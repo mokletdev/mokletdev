@@ -66,7 +66,7 @@ export const PreviewUrl = ({
       height={height}
       className={cn(className)}
       alt={alt}
-      onError={(err) => {
+      onError={() => {
         // try the next fallback
         if (idx < fallbacks.length - 1) {
           setIdx((i) => i + 1);
