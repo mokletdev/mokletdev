@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useMemo } from "react";
-import Image, { ImageProps } from "next/image";
+import { ImageProps } from "next/image";
 
 interface PreviewUrlProps
   extends Omit<ImageProps, "src" | "alt" | "width" | "height"> {
