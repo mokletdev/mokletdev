@@ -58,7 +58,7 @@ export const ContributeSection = ({
         asChild
       >
         <Link href="https://github.com/mokletdev" target="_blank">
-          <FaGithub className="group-hover:text-accent-foreground group-focus:text-accent-foreground transition-color duration-300" />
+          <FaGithub />
           Start Contributing!
           <LuArrowUpRight className="absolute right-3 group-hover:translate-y-0 translate-y-1/2 group-focus:opacity-100 group-hover:opacity-100 opacity-0 transition-all duration-500" />
         </Link>
