@@ -19,6 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dev.moklet.org"),
   title: "MokletDev",
   description:
     "MokletDev is a student developer community under METIC (Moklet Education of Technology and Informatic Club). We turn ideas into working products, web apps, tools, and services—used by our school and external partners",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     title: "MokletDev",
     description:
       "MokletDev is a student developer community under METIC (Moklet Education of Technology and Informatic Club). We turn ideas into working products, web apps, tools, and services—used by our school and external partners",
-    url: "https://mokletdev.vercel.app",
+    url: "https://dev.moklet.org",
     siteName: "MokletDev",
     locale: "en_US",
     type: "website",
