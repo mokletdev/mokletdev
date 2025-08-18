@@ -32,20 +32,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  // Turn on PROD
-  // robots: {
-  //   index: true,
-  //   follow: true,
-  //   nocache: false,
-  //   googleBot: {
-  //     index: true,
-  //     follow: true,
-  //     noimageindex: true,
-  //     // "max-video-preview": -1,
-  //     // "max-image-preview": "large",
-  //     // "max-snippet": -1,
-  //   },
-  // },
 };
 
 export default function RootLayout({
