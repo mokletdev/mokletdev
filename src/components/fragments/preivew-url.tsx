@@ -25,9 +25,9 @@ export const PreviewUrl = ({
 }: PreviewUrlProps) => {
   // const { resolvedTheme } = useTheme();
 
-  const previewHeight = Math.ceil(1080 / height);
-
   const imageUrl = useMemo(() => {
+    const scale = Math.ceil(1080 / height);
+
     const params = queryString.stringify({
       url,
       screenshot: true,
@@ -36,12 +36,12 @@ export const PreviewUrl = ({
       colorScheme: "dark",
       "viewport.isMobile": true,
       "viewport.deviceScaleFactor": 1,
-      "viewport.width": width * previewHeight,
-      "viewport.height": height * previewHeight,
+      "viewport.width": width * scale,
+      "viewport.height": height * scale,
       waitForTimeout: delay,
     });
     return `https://api.microlink.io/?${params}`;
-  }, []);
+  }, [url, width, height, delay]);
 
   const fallbacks = useMemo(() => {
     return [
