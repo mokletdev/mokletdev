@@ -54,6 +54,7 @@ export const RepoCard = ({
               loading="lazy"
               placeholder="blur"
               blurDataURL="/fallback-image.png"
+              delay={3000}
             />
           )}
           <div className="absolute top-0 left-0 w-full h-full bg-background transition-all duration-300 z-5 group-hover:translate-y-0 translate-y-[calc(100%-5.25rem)]" />
