@@ -29,7 +29,7 @@ export const RepoCard = ({
       href={data.html_url}
       target="_blank"
       className={cn(
-        "rounded-lg border overflow-hidden aspect-video w-full relative transition-all  duration-300 group hover:border-accent hover:shadow-lg shadow-none shadow-accent/20",
+        "rounded-lg border overflow-hidden aspect-video w-full relative transition-all duration-300 group hover:border-accent hover:shadow-lg shadow-none shadow-accent/20",
         hasHomepage ? "" : "p-4 flex flex-col gap-2 hover:bg-accent/10",
         className
       )}
@@ -54,7 +54,8 @@ export const RepoCard = ({
               loading="lazy"
             />
           )}
-          <div className="absolute bottom-0 left-0 w-full z-10 p-4 bg-background/10 flex flex-col gap-2 h-full group-hover:translate-y-0 translate-y-[calc(100%-5.5rem)] transition-all duration-300 group-hover:bg-accent/10 backdrop-blur">
+          <div className="absolute top-0 left-0 w-full h-full bg-background transition-all duration-300 z-5 group-hover:translate-y-0 translate-y-[calc(100%-5.25rem)]" />
+          <div className="absolute bottom-0 left-0 w-full z-10 p-4 flex flex-col gap-2 h-full group-hover:translate-y-0 translate-y-[calc(100%-5.25rem)] group-hover:bg-accent/10 transition-all duration-300 backdrop-blur border-t">
             <CardTitle data={data} />
             <CardDescription
               data={data}
@@ -94,7 +95,7 @@ export const CardTitle = ({
       <p className="font-semibold tracking-tight text-lg">{data.name}</p>
       <LuArrowUpRight
         size={24}
-        className="group-hover:text-accent-foreground transition-all  duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        className="group-hover:text-accent-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
       />
     </div>
   );

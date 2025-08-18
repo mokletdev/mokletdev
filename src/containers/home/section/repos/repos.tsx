@@ -11,15 +11,28 @@ export const ReposSection = ({ repos }: { repos: GitHubRepository[] }) => {
     useRepository({ repos });
 
   return (
-    <section id="repos" className="@container/repos">
-      <div className="flex flex-col gap-4 items-center mb-8">
+    <section
+      id="repos"
+      className="@container/repos min-h-screen flex flex-col items-center gap-8"
+    >
+      <div className="text-center w-full sm:max-w-2xl">
+        <h2 className="text-2xl lg:text-5xl font-bold font-rubik mb-1 lg:mb-2">
+          Find Repositories
+        </h2>
+        <p className="text-sm lg:text-base text-muted-foreground">
+          {
+            "Join our community of contributors and help us build something great! Whether you're a developer, designer, or just passionate about the project, your contributions are welcome."
+          }
+        </p>
+      </div>
+      <div className="flex flex-col gap-4 items-center">
         <div className="relative w-full sm:max-w-lg">
           <IoSearch className="absolute left-4 top-1/2 transform -translate-y-1/2" />
           <input
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
             placeholder="Search repositories…"
-            className="w-full outline rounded-full pl-10 pr-4 py-2 transition-colors duration-200 focus:bg-accent-foreground/10 hover:bg-accent-foreground/10"
+            className="w-full border rounded-full pl-10 pr-4 py-2 transition-colors duration-200 focus:bg-accent-foreground/10 hover:bg-accent-foreground/10"
             aria-label="Search repositories"
           />
         </div>
@@ -48,10 +61,20 @@ export const ReposSection = ({ repos }: { repos: GitHubRepository[] }) => {
           })}
         </div>
       </div>
-      <div className="grid gap-4 @[696px]/repos:grid-cols-2 @[1056px]/repos:grid-cols-3">
-        {data.map((repo) => (
-          <RepoCard key={repo.id} data={repo} />
-        ))}
+      <div className="flex flex-wrap gap-4 justify-center w-full">
+        {data.length ? (
+          data.map((repo) => (
+            <RepoCard
+              key={repo.id}
+              data={repo}
+              className="@[696px]/repos:w-[calc(50%-1rem)] @[1056px]/repos:w-[calc(33.333%-1rem)]"
+            />
+          ))
+        ) : (
+          <p className="text-muted-foreground font-mono text-center">
+            No repositories found <br /> <span>Sorry :( </span>
+          </p>
+        )}
       </div>
     </section>
   );
