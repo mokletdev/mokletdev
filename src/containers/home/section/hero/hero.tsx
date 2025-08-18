@@ -2,14 +2,16 @@
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 import { LuArrowUpRight, LuGlobe } from "react-icons/lu";
 
-export const HeroSection = () => {
-  const projectRef = useRef<HTMLElement | null>(null);
-
+export const HeroSection = ({
+  ref,
+}: {
+  ref: RefObject<HTMLElement | null>;
+}) => {
   const { scrollYProgress } = useScroll({
-    target: projectRef,
+    target: ref,
     // layoutEffect: true,,
     offset: ["start start", "end start"],
   });
@@ -18,14 +20,14 @@ export const HeroSection = () => {
 
   const rotate = useTransform(scrollYProgress, [0, 0.5], [-7, -21]);
 
-  const translateY = useTransform(scrollYProgress, [0, 1], [0, 500]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [0, 400]);
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [1, 0]);
 
   return (
     <section
       id="hero"
       className="@container/hero h-screen w-full flex flex-col gap-32 items-center justify-center relative overflow-hidden"
-      ref={projectRef}
+      ref={ref}
     >
       <div />
       <motion.div
@@ -106,7 +108,12 @@ export const HeroSection = () => {
           </motion.span>
         </h1>
       </motion.div>
-      <div className="relative z-10 flex flex-col items-center gap-4">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.8 }}
+        className="relative z-10 flex flex-col items-center gap-4"
+      >
         <Button
           variant="outline"
           className="font-mono group hover:pr-8! focus:pr-8! relative duration-500 overflow-hidden"
@@ -127,7 +134,7 @@ export const HeroSection = () => {
           working products, web apps, tools, and services used by our school and
           external partners.
         </p> */}
-      </div>
+      </motion.div>
     </section>
   );
 };
