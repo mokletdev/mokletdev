@@ -1,9 +1,9 @@
 "use client";
-import { useMemo } from "react";
+import { useState } from "react";
 import { LuArrowUp } from "react-icons/lu";
 
 export const Footer = () => {
-  const currentYear = useMemo(() => new Date().getFullYear(), []);
+  const [currentYear] = useState(new Date().getFullYear());
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -15,7 +15,7 @@ export const Footer = () => {
   return (
     <footer className="flex flex-col-reverse sm:flex-row items-center sm:justify-between py-4 gap-6 border-t">
       <p className="text-muted-foreground text-sm font-rubik">
-        &copy; {currentYear}{" "}MokletDev
+        &copy; {currentYear} MokletDev
       </p>
       <button
         onClick={scrollToTop}
