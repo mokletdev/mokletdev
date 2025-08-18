@@ -21,7 +21,30 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "MokletDev",
   description:
-    "We turn ideas into working products, web apps, tools, and services—used by our school and external partners",
+    "MokletDev is a student developer community under METIC (Moklet Education of Technology and Informatic Club). We turn ideas into working products, web apps, tools, and services—used by our school and external partners",
+  openGraph: {
+    title: "MokletDev",
+    description:
+      "MokletDev is a student developer community under METIC (Moklet Education of Technology and Informatic Club). We turn ideas into working products, web apps, tools, and services—used by our school and external partners",
+    url: "https://mokletdev.vercel.app",
+    siteName: "MokletDev",
+    locale: "en_US",
+    type: "website",
+  },
+  // Turn on PROD
+  // robots: {
+  //   index: true,
+  //   follow: true,
+  //   nocache: false,
+  //   googleBot: {
+  //     index: true,
+  //     follow: true,
+  //     noimageindex: true,
+  //     // "max-video-preview": -1,
+  //     // "max-image-preview": "large",
+  //     // "max-snippet": -1,
+  //   },
+  // },
 };
 
 export default function RootLayout({
