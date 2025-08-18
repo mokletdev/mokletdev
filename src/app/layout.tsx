@@ -19,9 +19,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Moklet Dev",
+  title: "MokletDev",
   description:
-    "Open-sourced projects by Moklet Developers for the World 4.0 🌏",
+    "We turn ideas into working products, web apps, tools, and services—used by our school and external partners",
 };
 
 export default function RootLayout({

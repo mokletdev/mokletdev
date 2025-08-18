@@ -1,4 +1,5 @@
 "use client";
+import { DotPattern } from "@/components/fragments/dot-pattern";
 import { Heading } from "@/components/fragments/heading";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,13 +21,15 @@ export const ContributeSection = ({
   return (
     <section
       id="Contribute"
-      className="@container/contribute w-full flex flex-col items-center py-36 gap-8"
+      className="@container/contribute w-full flex flex-col items-center py-36 gap-8 relative"
     >
+      <DotPattern className="[mask-image:radial-gradient(24rem_circle_at_center,white,transparent)] z-0 opacity-50" />
       <Heading
         title="Contribute to the project"
         description="Join our community of contributors and help us build something great! Whether you're a developer, designer, or just passionate about the project, your contributions are welcome."
+        className="relative z-10"
       />
-      <div className="flex flex-wrap items-center justify-center gap-1 max-w-2xl">
+      <div className="flex flex-wrap items-center justify-center gap-1 max-w-2xl relative z-10">
         {members.map((member) => (
           <Tooltip key={member.id}>
             <TooltipTrigger asChild>
@@ -51,7 +54,7 @@ export const ContributeSection = ({
       </div>{" "}
       <Button
         variant="outline"
-        className="font-mono group hover:pr-8! focus:pr-8! relative duration-500 overflow-hidden"
+        className="font-mono group hover:pr-8! focus:pr-8! duration-500 overflow-hidden relative z-10"
         asChild
       >
         <Link href="https://github.com/mokletdev" target="_blank">
