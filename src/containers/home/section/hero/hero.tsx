@@ -2,14 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
-import { RefObject, useRef } from "react";
+import { useRef } from "react";
 import { LuArrowUpRight, LuGlobe } from "react-icons/lu";
 
-export const HeroSection = ({
-  ref,
-}: {
-  ref: RefObject<HTMLElement | null>;
-}) => {
+export const HeroSection = () => {
+  const ref = useRef<HTMLElement | null>(null);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     // layoutEffect: true,,
