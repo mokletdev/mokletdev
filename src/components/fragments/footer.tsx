@@ -13,7 +13,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="flex flex-col-reverse sm:flex-row items-center sm:justify-between my-4 gap-6">
+    <footer className="flex flex-col-reverse sm:flex-row items-center sm:justify-between py-4 gap-6 border-t">
       <p className="text-muted-foreground text-sm font-rubik">
         &copy; {currentYear}{" "}MokletDev
       </p>
