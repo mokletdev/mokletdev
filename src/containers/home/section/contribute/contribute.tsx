@@ -1,7 +1,16 @@
 "use client";
+import { Heading } from "@/components/fragments/heading";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { GitHubUserLite } from "@/types/github";
 import Image from "next/image";
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
+import { LuArrowUpRight } from "react-icons/lu";
 
 export const ContributeSection = ({
   members,
@@ -11,33 +20,46 @@ export const ContributeSection = ({
   return (
     <section
       id="Contribute"
-      className="@container/contribute w-full flex flex-col items-center py-36"
+      className="@container/contribute w-full flex flex-col items-center py-36 gap-8"
     >
-      <h2 className="text-2xl lg:text-5xl font-bold font-rubik text-center w-full sm:max-w-2xl mb-1 lg:mb-2">
-        Contribute to the project
-      </h2>
-      <p className="text-center text-sm lg:text-base w-full sm:max-w-2xl mb-8 text-muted-foreground">
-        {
-          "Join our community of contributors and help us build something great! Whether you're a developer, designer, or just passionate about the project, your contributions are welcome."
-        }
-      </p>
-      <div className="flex flex-wrap items-center justify-center gap-1 max-w-lg">
+      <Heading
+        title="Contribute to the project"
+        description="Join our community of contributors and help us build something great! Whether you're a developer, designer, or just passionate about the project, your contributions are welcome."
+      />
+      <div className="flex flex-wrap items-center justify-center gap-1 max-w-2xl">
         {members.map((member) => (
-          <Link
-            href={member.html_url}
-            target="_blank"
-            key={member.id}
-            className="size-12 rounded-full overflow-hidden border hover:outline-2"
-          >
-            <Image
-              src={member.avatar_url}
-              alt={member.login}
-              width={48}
-              height={48}
-            />
-          </Link>
+          <Tooltip key={member.id}>
+            <TooltipTrigger asChild>
+              <Link
+                href={member.html_url}
+                target="_blank"
+                className="size-12 rounded-full overflow-hidden border hover:outline-2"
+              >
+                <Image
+                  src={member.avatar_url}
+                  alt={member.login}
+                  width={48}
+                  height={48}
+                />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent className="font-mono">
+              {member.login}
+            </TooltipContent>
+          </Tooltip>
         ))}
-      </div>
+      </div>{" "}
+      <Button
+        variant="outline"
+        className="font-mono group hover:pr-8! focus:pr-8! relative duration-500 overflow-hidden"
+        asChild
+      >
+        <Link href="https://github.com/mokletdev" target="_blank">
+          <FaGithub className="group-hover:text-accent-foreground group-focus:text-accent-foreground transition-color duration-300" />
+          Start Contributing!
+          <LuArrowUpRight className="absolute right-3 group-hover:translate-y-0 translate-y-1/2 group-focus:opacity-100 group-hover:opacity-100 opacity-0 transition-all duration-500" />
+        </Link>
+      </Button>
     </section>
   );
 };
