@@ -1,4 +1,5 @@
 "use client";
+import { Heading } from "@/components/fragments/heading";
 import { RepoCard } from "@/components/fragments/repo-card";
 import { useRepository } from "@/hooks/use-repository";
 import { cn } from "@/lib/utils";
@@ -15,16 +16,10 @@ export const ReposSection = ({ repos }: { repos: GitHubRepository[] }) => {
       id="repos"
       className="@container/repos min-h-screen flex flex-col items-center gap-8"
     >
-      <div className="text-center w-full sm:max-w-2xl">
-        <h2 className="text-2xl lg:text-5xl font-bold font-rubik mb-1 lg:mb-2">
-          Find Repositories
-        </h2>
-        <p className="text-sm lg:text-base text-muted-foreground">
-          {
-            "Join our community of contributors and help us build something great! Whether you're a developer, designer, or just passionate about the project, your contributions are welcome."
-          }
-        </p>
-      </div>
+      <Heading
+        title=" Find Repositories"
+        description="Explore our repositories to see the projects we have worked on, including web applications, tools, and services. You can also search for specific repositories or filter by programming language."
+      />
       <div className="flex flex-col gap-4 items-center">
         <div className="relative w-full sm:max-w-lg">
           <IoSearch className="absolute left-4 top-1/2 transform -translate-y-1/2" />
@@ -67,7 +62,7 @@ export const ReposSection = ({ repos }: { repos: GitHubRepository[] }) => {
             <RepoCard
               key={repo.id}
               data={repo}
-              className="@[696px]/repos:w-[calc(50%-1rem)] @[1056px]/repos:w-[calc(33.333%-1rem)]"
+              className="@[696px]/repos:w-[calc(50%-0.5rem)] @[1056px]/repos:w-[calc(33.333%-0.7rem)]"
             />
           ))
         ) : (
