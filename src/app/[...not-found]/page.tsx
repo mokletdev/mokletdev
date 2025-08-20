@@ -5,7 +5,7 @@ import { LuArrowUpRight } from "react-icons/lu";
 
 const NotFoundPage = () => {
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center gap-2">
+    <div className="w-screen h-screen flex flex-col items-center justify-center gap-2 text-foreground bg-background">
       <p className=" font-mono">404 | There is nothing here...</p>
       <Button
         variant="outline"
