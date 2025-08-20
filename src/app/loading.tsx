@@ -1,5 +1,7 @@
 import { LuLoader } from "react-icons/lu";
 
+
+// ! Dark mode not applied when loading
 const Loading = () => {
   return (
     <div className="w-screen h-screen flex items-center justify-center font-mono text-foreground bg-background">
