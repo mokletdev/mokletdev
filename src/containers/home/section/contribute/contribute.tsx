@@ -36,7 +36,7 @@ export const ContributeSection = ({
               <Link
                 href={member.html_url}
                 target="_blank"
-                className="size-12 rounded-full overflow-hidden border hover:outline-2"
+                className="size-12 rounded-full overflow-hidden border hover:outline-2 bg-muted"
               >
                 <Image
                   src={member.avatar_url}
